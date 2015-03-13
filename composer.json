@@ -2,7 +2,7 @@
     "name": "ex-syst/security-component",
     "type": "library",
     "description": "Provides some security helpers",
-    "license": "Apache",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "EXSyst"
