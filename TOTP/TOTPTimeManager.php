@@ -41,21 +41,21 @@ class TOTPTimeManager
         return $this->stampLength;
     }
 
-	/**
-	 * @return integer Current stamp
-	 */
-	public function getCurrentStamp()
-	{
-		return $this->getStamp(time());
-	}
+    /**
+     * @return integer Current stamp
+     */
+    public function getCurrentStamp()
+    {
+        return $this->getStamp(time());
+    }
 
-	/**
-	 * Returns the stamp corresponding to the specified time
-	 *
-	 * @param integer $time timestamp
-	 * @return integer stamp corresponding to the timestamp provided
-	 */
-	public function getStamp($time) {
-		return floor($time / $this->stampLength);
-	}
+    /**
+     * Returns the stamp corresponding to the specified time
+     *
+     * @param integer $time timestamp
+     * @return integer stamp corresponding to the timestamp provided
+     */
+    public function getStamp($time) {
+        return floor($time / $this->stampLength);
+    }
 }
