@@ -1,5 +1,5 @@
 {
-    "name": "ex-syst/security-component",
+    "name": "exsyst/security-component",
     "type": "library",
     "description": "Provides some security helpers",
     "license": "Apache-2.0",
