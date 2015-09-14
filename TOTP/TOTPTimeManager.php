@@ -1,4 +1,5 @@
 <?php
+
 namespace EXSyst\Component\Security\TOTP;
 
 use EXSyst\Component\Security\Exception\InvalidArgumentException;
@@ -8,41 +9,47 @@ class TOTPTimeManager
     const DEFAULT_STAMP_LENGTH = 30;
 
     /**
-     * @var integer
+     * @var int
      */
     private $stampLength;
 
     /**
-     * @param integer|null $stampLength Length of a unit time (default 30)
+     * @param int|null $stampLength Length of a unit time (default 30)
      */
-    public function __construct($stampLength = null) {
+    public function __construct($stampLength = null)
+    {
         $this->setStampLength($stampLength);
     }
 
     /**
-     * @param integer|null $stampLength Length of a unit time (default 30)
+     * @param int|null $stampLength Length of a unit time (default 30)
+     *
      * @return TOTPTimeManager
      */
-    public function setStampLength($stampLength = null) {
-        if($stampLength === null)
+    public function setStampLength($stampLength = null)
+    {
+        if ($stampLength === null) {
             $stampLength = self::DEFAULT_STAMP_LENGTH;
+        }
         $stampLength = intval($stampLength);
-        if(empty($stampLength) or $stampLength < 0)
+        if (empty($stampLength) or $stampLength < 0) {
             throw new InvalidArgumentException('Stamp length must be greater than 0 and positive.');
+        }
         $this->stampLength = $stampLength;
 
         return $this;
     }
 
     /**
-     * @return integer Stamp length
+     * @return int Stamp length
      */
-    public function getStampLength() {
+    public function getStampLength()
+    {
         return $this->stampLength;
     }
 
     /**
-     * @return integer Current stamp
+     * @return int Current stamp
      */
     public function getCurrentStamp()
     {
@@ -50,12 +57,14 @@ class TOTPTimeManager
     }
 
     /**
-     * Returns the stamp corresponding to the specified time
+     * Returns the stamp corresponding to the specified time.
      *
-     * @param integer $time timestamp
-     * @return integer stamp corresponding to the timestamp provided
+     * @param int $time timestamp
+     *
+     * @return int stamp corresponding to the timestamp provided
      */
-    public function getStamp($time) {
+    public function getStamp($time)
+    {
         return floor($time / $this->stampLength);
     }
 }
