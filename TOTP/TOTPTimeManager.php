@@ -41,7 +41,7 @@ class TOTPTimeManager
             $stampLength = self::DEFAULT_STAMP_LENGTH;
         }
         $stampLength = intval($stampLength);
-        if (empty($stampLength) or $stampLength < 0) {
+        if (empty($stampLength) || $stampLength < 0) {
             throw new InvalidArgumentException('Stamp length must be greater than 0 and positive.');
         }
         $this->stampLength = $stampLength;

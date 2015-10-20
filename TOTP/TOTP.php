@@ -54,7 +54,7 @@ class TOTP
      */
     public function validate($key, $totp, $stamp = null)
     {
-        return $this->validator($key, $totp, $stamp);
+        return $this->validator->validate($key, $totp, $stamp);
     }
 
     /**

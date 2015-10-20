@@ -21,7 +21,11 @@ class TOTPValidator
     /**
      * @var TOTPTimeManager
      */
-    protected $timeManager;
+    private $timeManager;
+    /**
+     * @var int|null
+     */
+    private $window;
 
     /**
      * @param TOTPTimeManager|int|null $stampLength Stamp length in seconds

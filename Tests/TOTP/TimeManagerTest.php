@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace EXSyst\Component\Security\TOTP\Tests;
+namespace EXSyst\Component\Security\Tests\TOTP;
 
 use EXSyst\Component\Security\TOTP\TOTPTimeManager;
 
