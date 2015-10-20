@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Security package.
+ *
+ * (c) EXSyst
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace EXSyst\Component\Security\TOTP\Tests;
 
 use EXSyst\Component\Security\TOTP\TOTPGenerator;
@@ -22,9 +31,9 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
 
     public function testValidator()
     {
-        for ($t = 0; $t < 10; $t++) {
+        for ($t = 0; $t < 10; ++$t) {
             $stamp = $this->stamp + rand(-300, 300);
-            for ($i = -5; $i <= 5; $i++) {
+            for ($i = -5; $i <= 5; ++$i) {
                 $totp = TOTPGenerator::generate($stamp + $i, $this->key);
                 $this->assertEquals($stamp + $i, $this->validator->validate($totp, $this->key, $stamp + $i),
                     sprintf('Error during checking totp "%s" with the key "%s", the stamp "%d" and with %s stamp added', $totp, $this->key, $stamp, $i));

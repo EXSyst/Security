@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Security package.
+ *
+ * (c) EXSyst
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace EXSyst\Component\Security\TOTP;
 
 /**
@@ -23,7 +32,7 @@ class TOTPKeyGenerator
         }
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
         $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
+        for ($i = 0; $i < $length; ++$i) {
             $randomString .= $characters[rand(0, strlen($characters) - 1)];
         }
 

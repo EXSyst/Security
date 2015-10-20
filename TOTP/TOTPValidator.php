@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Security package.
+ *
+ * (c) EXSyst
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace EXSyst\Component\Security\TOTP;
 
 /**
@@ -55,7 +64,7 @@ class TOTPValidator
         $totp = intval($totp);
 
         // Search the stamp corresponding to the totp provided
-        for ($st = $stamp - $this->window; $st <= $stamp + $this->window; $st++) {
+        for ($st = $stamp - $this->window; $st <= $stamp + $this->window; ++$st) {
             if (($res = TOTPGenerator::generate($st, $key)) == $totp) {
                 return $st;
             }

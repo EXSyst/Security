@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Security package.
+ *
+ * (c) EXSyst
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace EXSyst\Component\Security\TOTP;
 
 use EXSyst\Component\Security\Exception\TooShortKeyException;
@@ -74,7 +83,7 @@ class TOTPGenerator
         $j = 0;
         $binary = '';
 
-        for ($i = 0; $i < $l; $i++) {
+        for ($i = 0; $i < $l; ++$i) {
             $n = $n << 5;                    // Move buffer left by 5 to make room
             $n = $n + self::$lut[$b32[$i]]; // Add value into buffer
             $j = $j + 5;                    // Keep track of number of bits in buffer

@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Security package.
+ *
+ * (c) EXSyst
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace EXSyst\Component\Security\TOTP\Tests;
 
 use EXSyst\Component\Security\TOTP\TOTPTimeManager;
@@ -11,7 +20,7 @@ class TimeManagerTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->tm = [];
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 10; ++$i) {
             $l = rand(1, 120);
             $this->tm[$l] = new TOTPTimeManager($l);
         }
