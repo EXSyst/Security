@@ -39,7 +39,7 @@ class TOTPValidator
         } else {
             $this->timeManager = $stampLength;
         }
-        
+
         // Window definition
         if ($window === null) {
             $this->window = self::DEFAULT_STAMP_WINDOW;
