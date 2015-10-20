@@ -31,20 +31,20 @@ class TOTPValidator
      * @param TOTPTimeManager|int|null $stampLength Stamp length in seconds
      * @param int|null                 $window      accepted stamps before and after the current stamp
      */
-    public function __construct($window = null, $stampLength = null)
+    public function __construct($stampLength = null, $window = null)
     {
-        // Window definition
-        if ($window === null) {
-            $this->window = self::DEFAULT_STAMP_WINDOW;
-        } else {
-            $this->window = intval($window);
-        }
-
         // stamp length definition
         if (!($stampLength instanceof TOTPTimeManager)) {
             $this->timeManager = new TOTPTimeManager(intval($stampLength));
         } else {
             $this->timeManager = $stampLength;
+        }
+        
+        // Window definition
+        if ($window === null) {
+            $this->window = self::DEFAULT_STAMP_WINDOW;
+        } else {
+            $this->window = intval($window);
         }
     }
 
